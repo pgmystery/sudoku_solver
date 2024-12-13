@@ -5,6 +5,7 @@ A very simple [Kivy](https://kivy.org/) application to solve Sudoku.
 ## Download
 
 It is available as an Android App (.apk file).
+
 https://github.com/pgmystery/sudoku_solver/releases
 
 
