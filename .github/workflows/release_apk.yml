@@ -38,10 +38,9 @@ jobs:
         with:
           image: pgmystery/sudoku_solver_buildozer:latest
           path: "/home/user/hostcwd/buildozer/bin/sudoku_solver.apk"
-          destination: /sudoku_solver.apk
 
       - name: Upload Release Asset
         id: upload-release-asset
         uses: softprops/action-gh-release@v1
         with:
-          files: /sudoku_solver.apk
+          files: sudoku_solver.apk
