@@ -1,0 +1,778 @@
+<NumberSelectPopup>:
+	id: NumberSelectPopup
+	title: ''
+	size_hint: (0.7, 0.7)
+	GridLayout:
+		id: buttonGrid
+		rows: 4
+		cols: 3
+		NumberSelecterButton:
+			font_size: 50
+			text: '1'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '2'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '3'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '4'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '5'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '6'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '7'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '8'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: '9'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+		NumberSelecterButton:
+			font_size: 50
+			text: 'Reset'
+			interface: root.interface
+			on_release: root.interface.numberSelectButtonRelease(self)
+
+
+<Interface>:
+	id: Interface
+    canvas.before:
+		Color:
+			rgb: 1, 1, 1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	orientation: 'vertical'
+	GridLayout:
+		id: sudokuFieldLayout
+		rows: 3
+		cols: 3
+		Widget:
+			id: sudokuLayoutLT
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "00"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "01"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "02"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "10"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "11"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "12"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "20"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "21"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "22"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutMT
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "03"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "04"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "05"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "13"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "14"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "15"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "23"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "24"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "25"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutRT
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "06"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "07"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "08"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "16"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "17"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "18"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "26"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "27"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "28"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutLM
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "30"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "31"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "32"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "40"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "41"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "42"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "50"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "51"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "52"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutMM
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "33"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "34"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "35"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "43"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "44"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "45"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "53"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "54"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "55"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutRM
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "36"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "37"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "38"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "46"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "47"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "48"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "56"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "57"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "58"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutLB
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "60"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "61"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "62"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "70"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "71"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "72"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "80"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "81"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "82"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutMB
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "63"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "64"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "65"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "73"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "74"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "75"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "83"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "84"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "85"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+		Widget:
+			id: sudokuLayoutRB
+			canvas.before:
+				# BORDER:
+				Color:
+					rgb: (1, 0.93, 0.04)
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				# BACKGROUND:
+				Color:
+					rgb: (1, 1, 1)
+				Rectangle:
+					pos: (self.x + 5, self.y + 5)
+					size: (self.width - 10, self.height - 10)
+			GridLayout:
+				pos: (self.parent.x + 4, self.parent.y + 4)
+				size: (self.parent.width - 8, self.parent.height - 8)
+				rows: 3
+				cols: 3
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "66"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "67"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "68"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "76"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "77"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "78"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "86"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "87"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+				Button:
+					text: 'X'
+					font_size: 50
+					gridId: "88"
+					stateButton: None
+					on_release: root.numberButtonRelease(self)
+	BoxLayout:
+		orientation: 'horizontal'
+		size_hint_y: None
+		height: 60
+	    canvas.before:
+			Color:
+				rgb: 0, 0, 0
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		Button:
+			size_hint_y: None
+			height: 60
+			text: u'Aufl\u00F6sen!'
+			font_size: 25
+			on_press: root.resolve()
+		Widget:
+			size_hint: (None, None)
+			width: 70
+			height: 60
+		Button:
+			size_hint_y: None
+			height: 60
+			text: u'Zur\u00FCcksetzen'
+			font_size: 25
+			on_press: root.clear()
+
+
+<ResolvePopup>
+	id: ResolvePopup
+	title: ''
+	size_hint: (0.7, 0.7)
+	auto_dismiss: False
+	BoxLayout:
+		orientation: 'horizontal'
+		Label:
+			text: u'Das Sudoku wird gel\u00F6st\nBitte Warten...'
+			font_size: 25
+			halign: 'center'

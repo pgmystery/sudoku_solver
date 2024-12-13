@@ -1,0 +1,47 @@
+name: Release Sudoku Solver APK
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  release_apk:
+    name: Release APK to Github
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Replace version text in buildozer.spec
+        uses: richardrigutins/replace-in-files@v2
+        with:
+          files: 'buildozer.spec'
+          search-text: 'APK_VERSION'
+          replacement-text: ${{ github.event.release.tag_name }}
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          tags: pgmystery/sudoku_solver_buildozer:latest
+          build-args: |
+            KEYSTORE_FILE_PASSWORD=${{ secrets.KEYSTORE }}
+            APK_VERSION=${{ github.event.release.tag_name }}
+
+      - name: Extract APK from Docker Image
+        uses: shrink/actions-docker-extract@v3
+        id: extract
+        with:
+          image: pgmystery/sudoku_solver_buildozer:latest
+          path: "/home/user/hostcwd/buildozer/bin/sudoku_solver.apk"
+          destination: /sudoku_solver.apk
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: /sudoku_solver.apk
