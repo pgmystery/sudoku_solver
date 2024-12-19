@@ -3,8 +3,8 @@
 A very simple [Kivy](https://kivy.org/) application to solve Sudoku.
 
 ## Download
-
-It is available as an Android App (.apk file).
+### Android
+A .apk-file for Android is available unter releases.
 
 https://github.com/pgmystery/sudoku_solver/releases
 
